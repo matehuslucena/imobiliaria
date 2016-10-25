@@ -40,6 +40,7 @@
   <%= @house.description %>
 </p>
 
-
+<iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAdZ9c0armu3nfL-WoTF_NMWKfWBoy-bU8&q=<%= @house.address %>" frameborder="0" style="border:0" allowfullscreen></iframe>
+<br>
 <%= link_to 'Edit', edit_house_path(@house) %> |
 <%= link_to 'Back', houses_path %>
