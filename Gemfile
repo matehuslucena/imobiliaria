@@ -12,9 +12,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'mysql2'
 gem 'bootstrap-sass'
+gem 'web-console', '~> 2.0', group: :development
+gem 'rails_admin', '~> 1.0'
 
 group :development, :test do
   gem 'byebug'
-  gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'rspec-rails', '~> 3.5'
+  gem 'factory_girl_rails', "~> 4.0"
+  gem 'faker'
 end
