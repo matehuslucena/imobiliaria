@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  address: 
+  city: 
+  state: 
+  zip_code: 
+  price: 
+  type: 
+  description: 
+  customer_id: 
+
+two:
+  address: 
+  city: 
+  state: 
+  zip_code: 
+  price: 
+  type: 
+  description: 
+  customer_id: 
