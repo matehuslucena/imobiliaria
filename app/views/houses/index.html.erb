@@ -25,17 +25,13 @@
         <td><%= house.state %></td>
         <td><%= house.zip_code %></td>
         <td><%= house.price %></td>
-        <td><%= operation_name(house.operation) %></td>
+        <td><%= house.operation_name %></td>
         <td><%= house.description %></td>
         <td><%= house.customer_full_name %></td>
         <td><%= link_to 'Show', house %></td>
-        <td><%= link_to 'Edit', edit_house_path(house) %></td>
-        <td><%= link_to 'Destroy', house, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New House', new_house_path%>
