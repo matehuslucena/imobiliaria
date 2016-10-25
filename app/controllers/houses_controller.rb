@@ -1,7 +1,9 @@
 class HousesController < ApplicationController
   helper HousesHelper
-
+  before_action :authenticate_user!
   before_action :set_house, only: [:show, :edit, :update, :destroy]
+
+  skip_before_filter :authenticate_user!, :only => [:index]
 
   # GET /houses
   # GET /houses.json
