@@ -32,17 +32,19 @@
     <%= f.text_field :price %>
   </div>
   <div class="field">
-    <%= f.label :operation %><br>
-    <%= f.select :operation, [['Sell', 'S'], ['Rent', 'R']] %>
+    <%= f.label :operation_id %><br>
+    <%= f.collection_select :operation_id, Operation.all, :id, :name %>
   </div>
   <div class="field">
     <%= f.label :description %><br>
     <%= f.text_area :description, cols: 40, rows: 5 %>
   </div>
-  <div class="field">
-    <%= f.label :customer_id %><br>
-    <%= f.collection_select :customer_id, Customer.all, :id, :full_name %>
-  </div>
+  <% if current_user.admin? || current_user.agent? %>
+    <div class="field">
+      <%= f.label :user_id %><br>
+      <%= f.collection_select :user_id, User.where(role: User.roles[:customer]), :id, :name %>
+    </div>
+  <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>
