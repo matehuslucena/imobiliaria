@@ -7,7 +7,7 @@ class CreateHouses < ActiveRecord::Migration
       t.integer :zip_code
       t.float :price
       t.text :description
-      t.references :customer, index: true, foreign_key: true
+      t.references :user, index: true, foreign_key: true
       t.references :operation, index: true, foreign_key: true
 
       t.timestamps null: false
