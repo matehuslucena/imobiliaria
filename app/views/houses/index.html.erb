@@ -27,7 +27,7 @@
         <td><%= house.price %></td>
         <td><%= house.operation_name %></td>
         <td><%= house.description %></td>
-        <td><%= house.customer_full_name %></td>
+        <td><%= house.user_name %></td>
         <td><%= link_to 'Show', house %></td>
       </tr>
     <% end %>
@@ -35,3 +35,5 @@
 </table>
 
 <br>
+
+<%= link_to 'New House', new_house_path%>
