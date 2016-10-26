@@ -1,9 +1,7 @@
 class HousesController < ApplicationController
-  helper HousesHelper
-  before_action :authenticate_user!
-  before_action :set_house, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
-  skip_before_filter :authenticate_user!, :only => [:index]
+  before_action :set_house, only: [:show, :edit, :update, :destroy]
 
   # GET /houses
   # GET /houses.json
@@ -29,6 +27,7 @@ class HousesController < ApplicationController
   # POST /houses.json
   def create
     @house = House.new(house_params)
+    @house.user = current_user if current_user.customer?
 
     respond_to do |format|
       if @house.save
@@ -73,6 +72,6 @@ class HousesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def house_params
-      params.require(:house).permit(:address, :city, :state, :zip_code, :price, :operation, :description, :customer_id)
+      params.require(:house).permit(:address, :city, :state, :zip_code, :price, :operation_id, :description, :user_id)
     end
 end
