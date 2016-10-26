@@ -13,7 +13,7 @@ gem 'devise'
 gem 'mysql2'
 gem 'bootstrap-sass'
 gem 'web-console', '~> 2.0', group: :development
-gem 'rails_admin', '~> 1.0'
+gem 'cancancan', '~> 1.10'
 
 group :development, :test do
   gem 'byebug'
