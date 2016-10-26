@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :user
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  devise_for :users, controllers: { registrations: 'users/registrations' }
 
   root to: 'houses#index'
 
   resources :operations
-  resources :customers
   resources :houses
+  resources :user, :controller => "user"
 end
