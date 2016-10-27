@@ -1,5 +1,5 @@
 class ReservationsController < ApplicationController
-  load_and_authorize_resource
+  authorize_resource
 
   def index
     @reservations = Reservation.all.accessible_by(current_ability, :read)
@@ -17,8 +17,7 @@ class ReservationsController < ApplicationController
   end
 
   def destroy
-    byebug
-    reservation = Reservation.find_by(user_id: params[:user_id], house_id: params[:house_id])
+    reservation = Reservation.find_by(user_id: params[:id], house_id: params[:house_id])
     reservation.destroy
 
     respond_to do |format|
