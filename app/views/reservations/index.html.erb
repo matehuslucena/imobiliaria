@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Reserves</h1>
+
+<table class="table table-stripped">
+  <thead>
+    <tr>
+      <th>Customer</th>
+      <th>House Address</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reservations.each do |reservation| %>
+      <tr>
+        <td><%= reservation.user_name %></td>
+        <td><%= reservation.house.address %></td>
+        <td><%= link_to 'Show', reservation.house %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Back', houses_path%>
