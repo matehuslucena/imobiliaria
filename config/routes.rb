@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :operations
   resources :houses do
     resources :reservations, only:[:create, :destroy]
+    get 'my_houses', to: 'houses#customer_houses', on: :collection
   end
 
   get 'reservations', to: 'reservations#index'
