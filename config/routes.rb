@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   root to: 'houses#index'
 
   resources :operations
-  resources :houses
+  resources :houses do
+    resources :reservations, only:[:create, :destroy]
+  end
+
+  get 'reservations', to: 'reservations#index'
+
   resources :user, :controller => "user"
 end
