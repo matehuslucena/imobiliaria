@@ -3,28 +3,21 @@ class HousesController < ApplicationController
 
   before_action :set_house, only: [:show, :edit, :update, :destroy]
 
-  # GET /houses
-  # GET /houses.json
   def index
-    @houses = House.all
+    @houses = House.where.not(user_id: current_user.id ) if current_user.customer?
+    @houses = House.all if current_user.agent? || current_user.admin?
   end
 
-  # GET /houses/1
-  # GET /houses/1.json
   def show
   end
 
-  # GET /houses/new
   def new
     @house = House.new
   end
 
-  # GET /houses/1/edit
   def edit
   end
 
-  # POST /houses
-  # POST /houses.json
   def create
     @house = House.new(house_params)
     @house.user = current_user if current_user.customer?
@@ -40,8 +33,6 @@ class HousesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /houses/1
-  # PATCH/PUT /houses/1.json
   def update
     respond_to do |format|
       if @house.update(house_params)
@@ -54,8 +45,6 @@ class HousesController < ApplicationController
     end
   end
 
-  # DELETE /houses/1
-  # DELETE /houses/1.json
   def destroy
     @house.destroy
     respond_to do |format|
@@ -64,13 +53,15 @@ class HousesController < ApplicationController
     end
   end
 
+  def customer_houses
+    @houses = House.all.accessible_by(current_ability, :customer_houses)
+  end
+
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_house
       @house = House.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def house_params
       params.require(:house).permit(:address, :city, :state, :zip_code, :price, :operation_id, :description, :user_id)
     end
