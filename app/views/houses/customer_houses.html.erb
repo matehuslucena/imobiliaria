@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1>My Houses</h1>
+
+<table class="table table-stripped">
+  <thead>
+    <tr>
+      <th>Address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip code</th>
+      <th>Price</th>
+      <th>Operation</th>
+      <th>Description</th>
+      <th>Customer</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @houses.each do |house| %>
+      <tr>
+        <td><%= house.address %></td>
+        <td><%= house.city %></td>
+        <td><%= house.state %></td>
+        <td><%= house.zip_code %></td>
+        <td><%= house.price %></td>
+        <td><%= house.operation_name %></td>
+        <td><%= house.description %></td>
+        <td><%= house.user_name %></td>
+        <td><%= link_to 'Edit', edit_house_path(house) %></td>
+        <td><%= link_to 'Show', house %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Back', houses_path%>
