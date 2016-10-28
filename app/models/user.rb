@@ -8,6 +8,6 @@ class User < ActiveRecord::Base
 
   private
   def set_default_role
-    self.role ||= 2
+    self.role ||= User.roles[:customer]
   end
 end
