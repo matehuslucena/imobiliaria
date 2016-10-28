@@ -4,17 +4,19 @@ A system to sell and rent houses, build with Ruby 2.3.0 and Rails 4.2.7.
 
 To use just make a clone or fork and run
 
+<code> $ bundle install </code>
+
+After install de dependencies, run
+
 <code>$ rake db:create db:migrate</code>
 
 To create the database
 
-After to configurate the database you might run
+And to start the server and access the application, run
 
-<code> $ bundle install </code>
+<code> $ rails server</code>
 
-After run
-
-<code> $ rails s to start the server.</code>
+You can access the application with <code>http://localhost:3000</code>
 
 To run the test, just run
 
