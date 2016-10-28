@@ -17,7 +17,7 @@ class ReservationsController < ApplicationController
   end
 
   def destroy
-    reservation = Reservation.find_by(user_id: params[:id], house_id: params[:house_id])
+    reservation = Reservation.find_by(user_id: current_user.id, house_id: params[:house_id])
     reservation.destroy
 
     respond_to do |format|
