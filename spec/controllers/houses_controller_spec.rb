@@ -12,11 +12,11 @@ describe HousesController, :type => :controller do
     it { is_expected.to redirect_to new_user_session_path }
   end
 
-  shared_examples 'assigns the houses of all houses to @houses' do
+  shared_examples 'authorize list all houses' do
     it { expect{ subject }.to change{ assigns(:houses) }.to([house, another_house]) }
   end
 
-  shared_examples 'call action show with success' do
+  shared_examples 'when show is authorized' do
     it { is_expected.to be_success }
 
     it 'assigns the requested house to @house' do
@@ -28,24 +28,17 @@ describe HousesController, :type => :controller do
     end
   end
 
-  shared_examples 'call action new with success' do
+  shared_examples 'when new is authorized' do
     it 'renders the #new template' do
       expect(subject).to render_template(:new)
     end
   end
 
-  shared_examples 'call action creation as admin or agent' do
+  shared_examples 'when create is authorized' do
     let!(:operation) { create :operation }
     let(:customer) { create :user, email: 't@t.com', role: :customer }
 
-    it 'creates a new house without customer_id' do
-      expect {
-        post :create, house: attributes_for(:house).merge({operation_id: operation.id })
-      }.to change(House, :count).by(0)
-    end
-
-    it 'creates a new house with customer_id' do
-
+    it 'creates a new house choosing customer_id' do
       expect {
         post :create, house: attributes_for(:house).merge({operation_id: operation.id, user_id: customer })
       }.to change(House, :count).by(1)
@@ -79,13 +72,13 @@ describe HousesController, :type => :controller do
       context 'as admin' do
         let(:role){ :admin }
 
-        it_behaves_like 'assigns the houses of all houses to @houses'
+        it_behaves_like 'authorize list all houses'
       end
 
       context 'as agent' do
         let(:role){ :agent }
 
-        it_behaves_like 'assigns the houses of all houses to @houses'
+        it_behaves_like 'authorize list all houses'
       end
     end
 
@@ -109,19 +102,19 @@ describe HousesController, :type => :controller do
       context 'as customer' do
         let(:role){ :customer }
 
-        it_behaves_like 'call action show with success'
+        it_behaves_like 'when show is authorized'
       end
 
       context 'as admin' do
         let(:role){ :admin }
 
-        it_behaves_like 'call action show with success'
+        it_behaves_like 'when show is authorized'
       end
 
       context 'as agent' do
         let(:role){ :agent }
 
-        it_behaves_like 'call action show with success'
+        it_behaves_like 'when show is authorized'
       end
     end
 
@@ -141,19 +134,19 @@ describe HousesController, :type => :controller do
       context 'as customer' do
         let(:role){ :customer }
 
-        it_behaves_like 'call action new with success'
+        it_behaves_like 'when new is authorized'
       end
 
       context 'as admin' do
         let(:role){ :admin }
 
-        it_behaves_like 'call action new with success'
+        it_behaves_like 'when new is authorized'
       end
 
       context 'as agent' do
         let(:role){ :agent }
 
-        it_behaves_like 'call action new with success'
+        it_behaves_like 'when new is authorized'
       end
     end
 
@@ -202,13 +195,13 @@ describe HousesController, :type => :controller do
       context 'as admin' do
         let(:role) { :admin }
 
-        it_behaves_like 'call action creation as admin or agent'
+        it_behaves_like 'when create is authorized'
       end
 
       context 'as agent' do
         let(:role) { :agent }
 
-        it_behaves_like 'call action creation as admin or agent'
+        it_behaves_like 'when create is authorized'
       end
     end
 

@@ -12,7 +12,7 @@ describe OperationsController, :type => :controller do
     it { is_expected.to redirect_to new_user_session_path }
   end
 
-  shared_examples 'index action not authorized' do
+  shared_examples 'when index is not authorized' do
     it 'must not be possible list operations' do
       expect{ subject }.to change{ assigns(:operations) }.to([])
     end
@@ -51,13 +51,13 @@ describe OperationsController, :type => :controller do
       context 'as customer' do
         let(:role){ :customer }
 
-        it_behaves_like 'index action not authorized'
+        it_behaves_like 'when index is not authorized'
       end
 
       context 'as agent' do
         let(:role){ :agent }
 
-        it_behaves_like 'index action not authorized'
+        it_behaves_like 'when index is not authorized'
       end
     end
 
