@@ -1,6 +1,7 @@
-![ruby](https://img.shields.io/badge/Ruby-2.3.0-red.svg)
-![rails](https://img.shields.io/badge/Rails-4.2.5.1-red.svg)
-== README
+![ruby](https://img.shields.io/badge/Ruby-2.3.0-green.svg)
+![rails](https://img.shields.io/badge/Rails-4.2.7-green.svg)
+
+**README**
 
 A system to sell and rent houses, build with Ruby 2.3.0 and Rails 4.2.7.
 
@@ -22,4 +23,4 @@ You can access the application with <code>http://localhost:3000</code>
 
 To run the test, just run
 
-<code>rspec<code>
+<code>rspec</code>
