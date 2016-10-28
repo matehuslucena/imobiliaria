@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :reservation do
-    user ""
-    house ""
+    user
+    house 
   end
 end

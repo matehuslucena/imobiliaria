@@ -5,9 +5,8 @@ FactoryGirl.define do
     state Faker::Address.state
     zip_code Faker::Address.zip_code
     price Faker::Commerce.price
-    operation 'S'
     description Faker::Lorem.paragraph
-    customer
+    operation
   end
 
   factory :invalid_house, parent: :house do
