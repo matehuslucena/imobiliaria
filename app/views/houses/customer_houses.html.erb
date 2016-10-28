@@ -30,6 +30,7 @@
         <td><%= house.user_name %></td>
         <td><%= link_to 'Edit', edit_house_path(house) %></td>
         <td><%= link_to 'Show', house %></td>
+        <td><%= link_to 'Destroy', house, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
