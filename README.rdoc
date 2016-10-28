@@ -2,23 +2,14 @@
 
 A system to sell and rent houses, build with Ruby 2.3.0 and Rails 4.2.7.
 
-To use just make a clone or fork, run $ bundle install and run $ rails s to start the server.
+To use just make a clone or fork and run
+--- $ rake db:create db:migrate
+To create the database
+
+After to configurate the database you might run
+--- $ bundle install
+
+After run
+--- $ rails s to start the server.
+
 To run the test, just run `rspec`
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
