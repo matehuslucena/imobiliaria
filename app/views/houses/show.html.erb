@@ -43,10 +43,10 @@
 <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=<%= @house.address %>&amp;output=embed"></iframe><br />
 <br>
 <% if current_user.customer? && !user_has_reserved?(current_user.id, @house.id) %>
-  <%= button_to "To Reserve", house_reservations_path(@house) %><br>
+  <%= button_to "To Reserve", house_reservations_path(@house), class: 'btn btn-success' %><br>
 <% end %>
 
 <% if current_user.customer? && user_has_reserved?(current_user.id, @house.id) %>
-  <%= button_to "Cancel Reserve", house_reservation_path(@house.id, current_user.id), method: :delete, data: { confirm: "Are you sure?" } %>
+  <%= button_to "Cancel Reserve", house_reservation_path(@house.id, current_user.id), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger' %>
 <% end %>
 <%= link_to 'Back', houses_path %>
