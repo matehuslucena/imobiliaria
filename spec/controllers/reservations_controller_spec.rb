@@ -147,7 +147,7 @@ describe ReservationsController, :type => :controller do
       context 'as agent' do
         let(:role) { :agent }
 
-        it_behaves_like 'when destroy is authorized'
+        it_behaves_like 'when not authorized'
       end
     end
 
