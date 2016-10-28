@@ -17,10 +17,10 @@ describe OperationsController, :type => :controller do
       expect{ subject }.to change{ assigns(:operations) }.to([])
     end
 
-    it_behaves_like 'must be redirect'
+    it_behaves_like 'when not authorized'
   end
 
-  shared_examples 'must be redirect' do
+  shared_examples 'when not authorized' do
     it 'must be redirect' do
       expect(subject).to redirect_to root_path
     end
@@ -93,13 +93,13 @@ describe OperationsController, :type => :controller do
       context 'as customer' do
         let(:role){ :customer }
 
-        it_behaves_like 'must be redirect'
+        it_behaves_like 'when not authorized'
       end
 
       context 'as agent' do
         let(:role){ :agent }
 
-        it_behaves_like 'must be redirect'
+        it_behaves_like 'when not authorized'
       end
     end
 
@@ -127,13 +127,13 @@ describe OperationsController, :type => :controller do
       context 'as customer' do
         let(:role){ :customer }
 
-        it_behaves_like 'must be redirect'
+        it_behaves_like 'when not authorized'
       end
 
       context 'as agent' do
         let(:role){ :agent }
 
-        it_behaves_like 'must be redirect'
+        it_behaves_like 'when not authorized'
       end
     end
 
@@ -184,13 +184,13 @@ describe OperationsController, :type => :controller do
       context 'as customer' do
         let(:role) { :customer }
 
-        it_behaves_like 'must be redirect'
+        it_behaves_like 'when not authorized'
       end
 
       context 'as agent' do
         let(:role) { :agent }
 
-        it_behaves_like 'must be redirect'
+        it_behaves_like 'when not authorized'
       end
     end
 
@@ -247,13 +247,13 @@ describe OperationsController, :type => :controller do
       context 'as customer' do
         let(:role) { :customer }
 
-        it_behaves_like 'must be redirect'
+        it_behaves_like 'when not authorized'
       end
 
       context 'as agent' do
         let(:role) { :agent }
 
-        it_behaves_like 'must be redirect'
+        it_behaves_like 'when not authorized'
       end
     end
 
@@ -281,7 +281,7 @@ describe OperationsController, :type => :controller do
           }.to change(Operation,:count).by(-1)
         end
 
-        it 'redirects to houses#index' do
+        it 'redirects to operations#index' do
           expect(subject).to redirect_to operations_path
         end
       end
@@ -289,13 +289,13 @@ describe OperationsController, :type => :controller do
       context 'as customer' do
         let(:role) { :customer }
 
-        it_behaves_like 'must be redirect'
+        it_behaves_like 'when not authorized'
       end
 
       context 'as agent' do
         let(:role) { :agent }
 
-        it_behaves_like 'must be redirect'
+        it_behaves_like 'when not authorized'
       end
     end
 
