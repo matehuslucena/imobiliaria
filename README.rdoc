@@ -7,7 +7,7 @@ To use just make a clone or fork and run
 To create the database
 
 After to configurate the database you might run
---- $ bundle install
+<code> $ bundle install </code>
 
 After run
 --- $ rails s to start the server.
