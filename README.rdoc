@@ -2,7 +2,7 @@
 
 A system to sell and rent houses, build with Ruby 2.3.0 and Rails 4.2.7.
 
-To use just make a clone or fork, run `bundle install` and run `rails s` to start the server.
+To use just make a clone or fork, run $ bundle install and run $ rails s to start the server.
 To run the test, just run `rspec`
 
 Things you may want to cover:
