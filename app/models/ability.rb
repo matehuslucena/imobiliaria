@@ -10,7 +10,7 @@ class Ability
       can :manage, House
       cannot [:destroy, :update], House
       can :manage, Reservation
-      cannot [:destroy], Reservation
+      cannot [:create, :destroy], Reservation
 
     elsif user.customer?
       can [:update, :destroy, :create, :show], House, user_id: user.id
