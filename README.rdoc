@@ -1,3 +1,5 @@
+![ruby](https://img.shields.io/badge/Ruby-2.3.0-red.svg)
+![rails](https://img.shields.io/badge/Rails-4.2.5.1-red.svg)
 == README
 
 A system to sell and rent houses, build with Ruby 2.3.0 and Rails 4.2.7.
