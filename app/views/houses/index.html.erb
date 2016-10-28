@@ -19,7 +19,12 @@
 
   <tbody>
     <% @houses.each do |house| %>
-      <tr>
+      <% if user_has_reserved?(current_user.id, house.id) %>
+        <tr style="background-color: #ace2ac">
+      <% else %>
+        <tr>
+      <% end %>
+
         <td><%= house.address %></td>
         <td><%= house.city %></td>
         <td><%= house.state %></td>
