@@ -14,6 +14,7 @@ gem 'mysql2'
 gem 'bootstrap-sass'
 gem 'web-console', '~> 2.0', group: :development
 gem 'cancancan', '~> 1.10'
+gem 'simplecov', :require => false, group: :test
 
 group :development, :test do
   gem 'byebug'
